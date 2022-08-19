@@ -1,44 +1,45 @@
-<!--
+## Description
 
-## READ BEFORE OPENING A PR
+_Describe the issue fixed here_
 
-Thank you for contributing to hugo-PaperMod!
-Please fill out the following questions to make it easier for us to review your
-changes. You do not need to check all the boxes below.
+### Issue Number:
 
-**NOTE**: PaperMod does not have any external dependencies fetched from 3rd party
-CDN servers. However we do have custom Head/Footer extender templates which you can use
-to add those to your website.
-https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#custom-head--footer
+- _Here Goes the Issue Number with a '#'_
 
--->
+---
 
+### Additional Information (Optional)
 
-**What does this PR change? What problem does it solve?**
+- _Here goes any Additional Information you would like to add._
 
-<!--
-Describe the changes and their purpose here, as detailed as and if  needed.
+---
 
-Please do not add 2 unrelated changes in a single PR as it is difficult to track/revert those in future.
--->
+### Checklist
 
+Yes, I included all necessary artefacts, including:
 
-**Was the change discussed in an issue or in the Discussions before?**
+- [ ] Tests
+- [ ] Documentation
+- [ ] Implementation (Code and Ressources)
+- [ ] Example
 
-<!--
-Link issues and relevant Discussions posts here.
+---
 
-If this PR resolves an issue on GitHub, use "Closes #1234" so that the issue
-is closed automatically when this PR is merged.
--->
+### Testing Checklist
 
+Yes, I ensured that all of the following scenarios were tested:
 
-## PR Checklist
+- [ ] Desktop Light Mode (Default)
+- [ ] Desktop Dark Mode
+- [ ] Desktop Light RTL Mode
+- [ ] Desktop Dark RTL Mode
+- [ ] Mobile Light Mode
+- [ ] Mobile Dark Mode
+- [ ] Mobile Light RTL Mode
+- [ ] Mobile Dark RTL Mode
 
-- [ ] This change adds/updates translations and I have used the [template present here](https://github.com/adityatelange/hugo-PaperMod/wiki/Translations#want-to-add-your-language-).
-- [ ] I have enabled [maintainer edits for this PR](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
-- [ ] I have verified that the code works as described/as intended.
-- [ ] This change adds a Social Icon which has a permissive license to use it.
-- [ ] This change **does not** include any CDN resources/links.
-- [ ] This change **does not** include any unrelated scripts such as bash and python scripts.
-- [ ] This change updates the overridden internal templates from HUGO's repository.
+---
+
+### Notify the following users
+
+- _List users with @ to send Notifications_

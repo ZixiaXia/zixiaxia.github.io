@@ -1,96 +1,72 @@
-<h1 align=center>Hugo PaperMod | <a href="https://adityatelange.github.io/hugo-PaperMod/" rel="nofollow">Demo</a></h1>
+# Anatole Hugo Theme ![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg) [![https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://www.conventionalcommits.org/) [![Netlify Status](https://api.netlify.com/api/v1/badges/1f4f2327-2b3f-428a-8f31-c4f921ebcc44/deploy-status)](https://app.netlify.com/sites/anatole-demo/deploys)
 
-<h4 align=center>☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive</h4>
-<br>
+Anatole is a beautiful minimalist two-column [hugo](https://gohugo.io/) theme based on farbox-theme-Anatole.
 
-> Hugo PaperMod is a theme based on [hugo-paper](https://github.com/nanxiaobei/hugo-paper).
-> The goal of this project is to add more features and customization to the og theme.
+![Screenshot Anatole Theme](https://raw.githubusercontent.com/lxndrblz/anatole/master/images/screenshot.png)
+![Screenshot Anatole Theme (dark)](https://raw.githubusercontent.com/lxndrblz/anatole/master/images/screenshot_dark.png)
 
-The [demo](https://adityatelange.github.io/hugo-PaperMod/) includes a lot of documentation about Installation, Features with a few more stuff. Make sure you visit it, to get an awesome hands-on experience and get to know about the features ...
+## Demo
 
-**ExampleSite** can be found here: [exampleSite](https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite). Demo is built up with [exampleSite](https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite) as source.
+A live demo of the theme can be found under the following domain:
+[https://anatole-demo.netlify.app/](https://anatole-demo.netlify.app/)
 
-[![Minimum Hugo Version](https://img.shields.io/static/v1?label=min-HUGO-version&message=0.83.0&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.83.0)
-[![Build GH-Pages](https://github.com/adityatelange/hugo-PaperMod/workflows/Build%20GH-Pages/badge.svg)](https://github.com/adityatelange/hugo-PaperMod/deployments/activity_log?environment=github-pages)
-[![GitHub](https://img.shields.io/github/license/adityatelange/hugo-PaperMod)](https://github.com/adityatelange/hugo-PaperMod/blob/master/LICENSE)
-[![hugo-papermod](https://img.shields.io/badge/Hugo--Themes-@PaperMod-blue)](https://themes.gohugo.io/themes/hugo-papermod/)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=adityatelange_hugo-PaperMod&metric=alert_status)](https://sonarcloud.io/dashboard?id=adityatelange_hugo-PaperMod)
-![code-size](https://img.shields.io/github/languages/code-size/adityatelange/hugo-PaperMod)
-[![Discord](https://img.shields.io/discord/971046860317921340?label=Discord)](https://discord.gg/ahpmTvhVmp)
+## Features
 
----
+Anatole's aims to be minimalistic and sleek but still brings some great functionality, including:
 
-<p align="center">
-  <kbd><img src="https://user-images.githubusercontent.com/21258296/114303440-bfc0ae80-9aeb-11eb-8cfa-48a4bb385a6d.png" alt="Mockup image" title="Mockup"/></kbd>
-</p>
+- Dark mode
+- Multilingual
+- RTL support
+- Portfolio (optional)
+- Post Thumbnails (optional)
+- 100⁄100 Google Lighthouse score
+- Analytics powered by Google Analytics, Simple Analytics and Umami (optional)
+- Comments powered by Disqus, Commento, Gitalk or Utteranc.es (optional)
+- KaTex support (optional)
+- Formspree Contact Form (optional)
+- Twitter Cards support
+- Open Graph support
+- Google Fonts support
+- Custom JavaScript and CSS (optional)
+- Compliant to strict CSP
+- Post Series
+- Mermaid diagram support (optional)
 
----
+## Preview the Example Site
 
-## Features/Mods 💥
+```shell
+git clone https://github.com/lxndrblz/anatole.git anatole
+cd anatole/exampleSite
+hugo server --themesDir ../..
+```
 
--   Uses Hugo's asset generator with pipelining, fingerprinting, bundling and minification by default.
--   3 Modes:
-    -   [Regular Mode.](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#regular-mode-default-mode)
-    -   [Home-Info Mode.](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#home-info-mode)
-    -   [Profile Mode.](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode)
--   Table of Content Generation (newer implementation).
--   Archive of posts.
--   Social Icons (home-info and profile-mode)
--   Social-Media Share buttons on posts.
--   Menu location indicator.
--   Multilingual support. (with language selector)
--   Taxonomies
--   Cover image for each post (with Responsive image support).
--   Light/Dark theme (automatic theme switch a/c to browser theme and theme-switch button).
--   SEO Friendly.
--   Multiple Author support.
--   Search Page with Fuse.js
--   Other Posts suggestion below a post
--   Breadcrumb Navigation
--   Code Block Copy buttons
--   No webpack, nodejs and other dependencies are required to edit the theme.
+## Documentation
 
-Read Wiki For More Details => **[PaperMod - Features](https://github.com/adityatelange/hugo-PaperMod/wiki/Features)**
+🚧 The documentation has moved!
 
----
+The latest documentation for the theme can be found within the [Wiki Tab on GitHub](https://github.com/lxndrblz/anatole/wiki).
 
-## Install/Update 📥
+## License
 
-Read Wiki For More Details => **[PaperMod - Installation](https://github.com/adityatelange/hugo-PaperMod/wiki/Installation)**
+Anatole is licensed under the [MIT license](https://github.com/lxndrblz/anatole/blob/master/LICENSE).
 
----
+## Contributions
 
-## Social-Icons/Share-Icons 🖼️
+This theme is maintained by its author [Alexander Bilz](https://github.com/lxndrblz) and with the help from these awesome [contributors](https://github.com/lxndrblz/anatole/graphs/contributors). All contributions (including features, translations, code cleanups, improved documentation & bugs reporting) are welcome.
 
-Read Wiki For More Details => **[PaperMod-Icons](https://github.com/adityatelange/hugo-PaperMod/wiki/Icons)**
+Read the [guidelines](https://github.com/lxndrblz/anatole/blob/master/.github/CONTRIBUTING.md) for more information about contributing to this project.
 
----
+## Sponsoring
 
-## FAQs / How To's Guide 🙋
+If you like this theme, give it a star on GitHub, and consider supporting its development:
 
-Read Wiki For More Details => **[PaperMod-FAQs](https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs)**
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/lxndrblz/)
 
----
+## Special Thanks 🎁
 
-## Release Changelog 📃
-
-Release ChangeLog has info about stuff added: **[Releases](https://github.com/adityatelange/hugo-PaperMod/releases)**
-
----
-
-## [Pagespeed Insights (100% ?)](https://pagespeed.web.dev/report?url=https://adityatelange.github.io/hugo-PaperMod/) 👀
-
----
-
-## Special Thanks 🌟
-
--   [**Highlight.js**](https://github.com/highlightjs/highlight.js)
--   [**Fuse.js**](https://github.com/krisk/fuse)
--   [**Feather Icons**](https://github.com/feathericons/feather)
--   [**Simple Icons**](https://github.com/simple-icons/simple-icons)
--   **All Contributors and Supporters**
-
-## Stargazers over time 📈
-
-<kbd>[![Stargazers over time](https://starchart.cc/adityatelange/hugo-PaperMod.svg)](https://starchart.cc/adityatelange/hugo-PaperMod)</kbd>
-
+- Go to [Cai Cai](https://github.com/hi-caicai), for the great Anatole [Farbox theme](https://github.com/hi-caicai/farbox-theme-Anatole) that formed the foundation for this theme.
+- Go to [Kareya Saleh](https://unsplash.com/photos/tLKOj6cNwe0) for providing the [profile picture](https://github.com/lxndrblz/anatole/blob/master/exampleSite/static/images/profile.jpg) used in the exampleSite.
+- Go to [Petri R](https://unsplash.com/photos/jLn20MzqfdE) for providing the [portfolio picture](https://github.com/lxndrblz/anatole/blob/master/exampleSite/static/images/portfolio/code.jpg) used in the exampleSite.
+- Go to [Ales Krivec](https://unsplash.com/photos/4miBe6zg5r0) for providing the thumbnail picture used in the exampleSite [image-test post](https://github.com/lxndrblz/anatole/blob/master/exampleSite/content/english/post/image-test.md).
+- Go to [Tobias Ahlin](https://github.com/tobiasahlin) for his [SpinKit](https://github.com/tobiasahlin/SpinKit) that is used in the exampleSite [redirect post](https://github.com/lxndrblz/anatole/blob/master/exampleSite/content/english/post/redirect.md).
+- Go to [FontAwseome](https://fontawesome.com/) for providing the icons used in this project.

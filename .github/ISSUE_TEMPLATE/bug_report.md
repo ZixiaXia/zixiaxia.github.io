@@ -1,47 +1,42 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: "[BUG]"
+title: ''
 labels: bug
-assignees: ''
-
+assignees: lxndrblz
 ---
 
-<!--
-
-## READ BEFORE OPENING ISSUES
-
-Please fill the template below
-- **DO NOT** ask for instructions.
-- Use Discussions section if you need help
-- See project wiki https://github.com/adityatelange/hugo-PaperMod/wiki
-- Read FAQs section https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs
-- Search for previous issues/ pull requests
-
--->
-
 **Describe the bug**
-<!-- A clear and concise description of what the bug is. -->
+A clear and concise description of what the bug is.
 
- - Device/Os: [e.g. Android 10]
- - Type: [e.g. Desktop/Mobile]
- - Browser and version [e.g. Chrome 86.0]:
- - Hugo Version [ >=0.83.0 expected]:
- - Theme Version [e.g. v4.0, master, or commit-id ]:
+**To Reproduce**
+Steps to reproduce the behavior:
 
-**Steps to reproduce the behavior:**
-<!--
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
--->
 
-**Expected behavior**:
-<!-- A clear and concise description of what you expected to happen. -->
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
 **Screenshots**
-<!-- If applicable, add screenshots to help explain your problem. -->
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+
+- OS: [e.g. iOS]
+- Browser [e.g. chrome, safari]
+- Version of the Theme
+- Version of Hugo (run a `hugo version` if unsure)
+
+**Smartphone (please complete the following information):**
+
+- Device: [e.g. iPhone6]
+- OS: [e.g. iOS8.1]
+- Browser [e.g. stock browser, safari]
+- Version of the Theme
+- Version of Hugo (run a `hugo version` if unsure)
 
 **Additional context**
-<!--Add any other context about the problem here. -->
+Add any other context about the problem here.
