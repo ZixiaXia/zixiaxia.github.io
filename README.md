@@ -1,103 +1,146 @@
-# hugo Resume
+# Tranquilpeak
 
-Created from [Start Bootstrap - Resume](https://startbootstrap.com/template-overviews/resume/).
-This is basically a single-page website with auto-scrolling based on left-hand nav.  Dedicated project/publications pages allow more detail.  Includes a client-side search powered by fuse.js at '/search' but currently theme does not link to that anywhere.  Includes an `/admin` endpoint that can allow authorized users to use a WYSIWYG editor and commit files back to markdown, but with a Wordpress/CMS like experience.
+[![Twitter Follow](https://img.shields.io/twitter/follow/thibaudlepretre.svg?style=social&label=%40thibaudlepretre)](https://twitter.com/intent/follow?screen_name=thibaudlepretre)
 
-<!-- MarkdownTOC autolink="true" -->
+A gorgeous responsive theme for Hugo blog framework.
 
-- [Examples](#examples)]
+![Tranquilpeak](https://raw.githubusercontent.com/kakawait/hugo-tranquilpeak-theme/master/showcase.png)
 
-- [Setup & Use](#setup--use)
-    - [Summary](#summary)
-    - [Data files](#data-files)
-    - [Projects](#projects)
-    - [Publications](#publications)
-    - [Blog / Posts](#blog--posts)
-    - [Template params](#template-params)tgggtgc
-- [CMS Editor with Netlify CMS](#cms-editor-with-netlify-cms)
-- [Credits](#credits)
-    - [Contributions](#contributions)
-    - [Start Bootstrap Resume](#start-bootstrap-resume)
+## Alpha/Beta versions
 
-<!-- /MarkdownTOC -->
+**ATTENTION** during *alpha* or *beta* [versions](https://github.com/kakawait/hugo-tranquilpeak-theme/milestones) breaking changes are possible on config file.
 
-## Examples
+You can track [breaking changes label](https://github.com/kakawait/hugo-tranquilpeak-theme/issues?q=is%3Aissue+is%3Aopen+label%3A%22breaking+changes%22).
 
-![About You](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/about.png)
+How can I migrate my current version? Please read [CHANGELOG.md](https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/CHANGELOG.md).
 
-![With optional Contact QR Code](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/qrcode.png)
+## Summary
 
-![Highlight skills with dev icons](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/skills.png)
+- [General](#general)
+- [Features](#features)
+- [Quick start](#quick-start)
+- [Demo](#demo)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [Showcase](#showcase)
+- [License](#license)
 
-![List featured projects](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/projects.png)
+## General
 
-![Searchable content](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/search.png)
+- **Authors**: [Thibaud Leprêtre (kakawait)](https://github.com/kakawait) and [Louis Barranqueiro (LouisBarranqueiro)](https://github.com/LouisBarranqueiro)
+- **Version**: 0.5.3-BETA (based on Hexo version 3.1.0)
+- **Compatibility**: Hugo v0.53
 
-See [Eddie's site](https://edwardawebb.com) for a live example.
+## Features
 
-## Setup & Use
+**General features:**
 
-This theme uses a combination of a custom archetype `projects` and some data files to drive content.
+- Fully responsive
+- Optimized for tablets & mobiles
+- Configurable menu of the sidebar
+- Pages to filter tags, categories and archives
+- Background cover image
+- Beautiful about page
+- Support Open Graph protocol
+- Easily customizable (fonts, colors, layout elements, code coloration, etc..)
+- Support internationalization (i18)
 
-You can test the provided [exampleSite](exampleSite) after cloning with the command:
-`cd exampleSite;hugo -t hugo-resume --themesDir ../.. server`
+**Posts features:**
 
-### Summary
-Edit the main `contents/_index.md with a brief bio/summary`
+- Thumbnail image
+- Cover image
+- Responsive videos & images
+- Sharing options
+- Navigation menu
+- GitHub theme for code highlighting (customizable)
+- Image gallery
+- Tags for images (FancyBox), wide images, tabbed code blocks, highlighted text, alerts
+- Table of contents
 
-### Data files
-Data files are used for simple content presented on the homepage.
+**Integrated services:**
 
-- [data/skills.json](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/data/skills.json)
-- [data/experience.json](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/data/experience.json)
-- [data/education.json](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/data/education.json)
+- Disqus
+- Gitlak
+- Google analytics
+- Gravatar
+- Facebook Insights
 
+### Missing features from original *Hexo* version
 
-### Projects
-Initially projects were in their own JSON file too, but I decided I wanted to allow more detail and custom formatting.
-Projects are added to one of 2 subfolders of `creations` or `contributions`. The difference indicates your role as originator or colaborator.   Use `hugo add projects/TYPE/name-of-project.md` to leverage the proper archetype.
+- [ ] Algolia (https://github.com/kakawait/hugo-tranquilpeak-theme/issues/8)
+- [ ] Pagination customization `tagPagination`, `categoryPagination` and `archivePagination` (https://github.com/kakawait/hugo-tranquilpeak-theme/issues/17)
 
-### Publications
-Similar to projects, create them under `publications`. Include any papers, speaking engagements, articles, etc.
+**ATTENTION** following features will not be possible due to *Hugo* limitations
 
-### Blog / Posts
-Similar to posts, create them under `blog`. Include any thoughts, musiings, etc.
-**This template does not support a `posts` folder**
+- Archives pages by years `/archives/2015`
+- Archives pages by month `/archives/2015/01`
 
-### Template params
+## Quick start
 
-All personal information outside the above details is captured by params in [`config.toml`](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/config.toml), or can be edited in the "Settings" collection if using CMS.
+**Please read [user documentation](https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md), it's short and useful to discover all features and possibilities of the theme, especially the  [writing posts](https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md#writing-posts) section**
 
-## CMS Editor with Netlify CMS
-**Does not require deployment to Netlify!**
+### For people who want to use the original version of Tranquilpeak without modifications (users)
 
-[Netlify CMS](https://www.netlifycms.org/) is an open source project that enables CMS like experience for static site generation tools like Hugo. This theme includes a fully working integration and guide in [exampleSite/static/admin](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/static/admin)
+Go to the directory where you have your Hugo site and run:
 
-![CMS integration](/images/cms.png)
+```shell
+mkdir themes
+cd themes
+git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git
+```
 
+After installing the Tranquilpeak theme successfully, we recommend you to take a look at the [exampleSite](exampleSite) directory. You will find a working Hugo site configured with the Tranquilpeak theme that you can use as a starting point for your site.
+
+First, let's take a look at the [config.toml](exampleSite/config.toml). It will be useful to learn how to customize your site. Feel free to play around with the settings.
+
+More information on [user documentation](https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md) to install and configure the theme
+
+### For people who want to create their own version of tranquilpeak (developers)
+
+1. Run `git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git`
+2. Follow [developer documentation](https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/developer.md) to edit and build the theme
+
+## Demo
+
+Check out Tranquilpeak theme in live : [hugo-tranquilpeak-theme demo](https://tranquilpeak.kakawait.com)
+
+## Showcase
+
+Checkout showcase https://tranquilpeak.kakawait.com/2015/06/who-is-using-tranquilpeak-hugo-theme/
+
+### How can I add my site to the showcase
+
+**Click [here](https://github.com/kakawait/hugo-tranquilpeak-theme/issues/new?title=Add%20my%20blog%20into%20the%20showcase&body=Hey,%20add%20my%20blog%20into%20the%20showcase:) to add your blog into the showcase.**
+
+Please fill the following information:
+
+1. public url
+2. name (optional)
+3. description (optional)
+
+## Documentation
+
+If it's your first time using Hugo, please check [Hugo official documentation](https://gohugo.io/overview/introduction/)
+
+### For users
+
+To install and configure the theme, consult the following documentation : [user documentation](https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md)
+
+### For developers
+
+To understand the code, the workflow and edit the theme, consult the following documentation : [developer documentation](https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/developer.md)
+
+## Contributing
+
+All kinds of contributions (enhancements, features, documentation & code improvements, bugs reporting) are welcome.
+
+Read [guidelines for contributing](https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/.github/CONTRIBUTING.md) for more information.
 
 ## Credits
 
-This project ports the Start Bootstrap Resume theme by David Miller to support hugo.
+*Hugo* version of Tranquilpeak is a based on original *Hexo* version https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak. This version is simply a port to *Hugo* static site generator.
 
-### Contributions
-The following users have made notable contributions:
-- [Anthony Whitford](https://github.com/awhitford)
-- [Kaushal Modi](https://github.com/kaushalmodi)
-- [Julien Rouse](https://github.com/JulienRouse)
+## License
 
-### Start Bootstrap Resume
-
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-* https://startbootstrap.com
-* https://twitter.com/SBootstrap
-
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
-
-* http://davidmiller.io
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
-
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+hugo-tranquilpeak-theme is released under the terms of the [GNU General Public License v3.0](https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/LICENSE).
 
