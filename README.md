@@ -1,3 +1,2 @@
-# zixiaxia.github.io
-
-Hi! It's me!!!
+# tyleransom.github.io
+Repository for Tyler Ransom's academic research website.
