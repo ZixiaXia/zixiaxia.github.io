@@ -123,11 +123,17 @@
       <p><b>Structure-aware dehazing of sewer inspection images based on monocular depth cues</b><br> 2021 - Jan 2022<br>
         <a href="https://ZixiaXia.github.io/research/Structure-aware dehazing of sewer inspection images based on monocular depth cues.pdf">paper</a>
         <a href="https://github.com/ZixiaXia/SANL-Net">code</a><br>
-        <img src="research/scheme.png" height="250" width="250" alt="scheme"></h3>
+        <br>During automated inspection of sewers, hazy sewer images affects the performance of succeed vision tasks. The main challenge for either depth estimation or image dehazing is steep depth change and extensive similar texture regions in the sewer image.<br>
+        <br>by works in camera calibration, autonomous driving and semantic line detection, this project aims to provide a sewer dataset including clean sewer images and sewer depth maps, and then propose a dehazing network specially for sewer images. As for depth estimation, <b>camera calibration</b> and <b>monocular cues</b> (e.g. two water–pipewall borderlines, a vanishing point) were used to calculate depth contours and generate depth maps. Then depth maps and original clean images were combined by atmospheric scattering model to synthesize various hazy images. As for image dehazing, a structure-aware non-local network (SANL-Net) was designed to leverages <b>high-level semantic information</b> and <b>low-level spatial information</b>, including three parts: a Semantic Net predicting two water borderlines, a Spatial Net calculating the residual map, and a structure-aware non-local network (SANL) module fusing features between two subnetworks.<br>
+        <br>SANL-Net showed its superiority over other state-of-the-art methods with 147 in mean square error (MSE), 27.28 in peak signal to noise ratio (PSNR), 0.8963 in structural similarity index measure (SSIM), and 15.47M in parameters. And with processing by this network, real hazy sewer images also obtained higher recall and precision in deficit detection, which demonstrates effectiveness of depth estimation and image dehazing both.
+        <br><img src="research/scheme.png" height="250" width="250" alt="scheme"></h3>
         <img src="research/SANL-Net.png" height="250" width="500" alt="SANL-Net"></h3>
       </p>
       <p><b>Domain-adaptive object detection with dehazing module</b><br>May 2022 - Now<br>
-        <img src="research/DA.jpg" height="250" width="500" alt="DA"></h3>
+        <br>Most popular object localization algorithms perform terribly in hazy scenes. To solve this problem, there are two main bottlenecks: image enhancement simply optimized by existing metrics (e.g. PSNR, SSIM) could hardly guarantee definitely-improved localization results, and fixed processing pipeline could not work both in hazy and clean scenes.<br> 
+        <br>So this work proposes a DefogDA-FasterRCNN network, comprising of a dehaze net, a Faster-RCNN and a domain-adaptation module. <b>Trained Faster-RCNN</b> participated in training the dehazing net, optimizing image quality and localization precision meanwhile. <b>Domain-adaptation</b> module utilized instance-level and pixel-level domain classifier to implement consistency regularization, generalizing the model to both hazy and clean scenes.<br> 
+        <br>DefogDA-FasterRCNN gained strong performance on two kinds of datasets (CitySpace and Foggy CitySpace) meanwhile, and achieved higher mAP (49.51% on CitySpace and 41.01% on Foggy CitySpace) than other methods.
+        <br><img src="research/DA.jpg" height="250" width="500" alt="DA"></h3>
       </p>
 
 
