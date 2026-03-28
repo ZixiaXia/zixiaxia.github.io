@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:jonbarron.info)",
+      "WebFetch(domain:pascalmichaillat.org)",
+      "WebFetch(domain:acamedia.uk)",
+      "WebFetch(domain:academicpages.github.io)",
+      "WebFetch(domain:www.elsevier.com)",
+      "WebFetch(domain:martinlea.com)",
+      "WebFetch(domain:qiushui-xu.github.io)",
+      "Bash(curl -s https://qiushui-xu.github.io/)",
+      "Bash(curl -s https://iasl.ics.uci.edu/people/marco-levorato/)",
+      "Bash(curl -s https://gpantju.github.io/index/)",
+      "Bash(sed -i '' 's|href=\"\"research/CV\\\\.pdf\"\"|href=\"\"files/CV.pdf\"\"|g' /Users/xiazixia/Downloads/zixiaxia.github.io-main/index.html)",
+      "Bash(sed -i '' 's|src=\"\"research/thumb_|src=\"\"images/pub/thumb_|g' /Users/xiazixia/Downloads/zixiaxia.github.io-main/index.html)",
+      "Bash(sed -i '' 's|src=\"\"research/scheme\\\\.png\"\"|src=\"\"images/pub/scheme.png\"\"|g' /Users/xiazixia/Downloads/zixiaxia.github.io-main/index.html)",
+      "Bash(sed -i '' 's|src=\"\"research/SANL-Net\\\\.png\"\"|src=\"\"images/pub/SANL-Net.png\"\"|g' /Users/xiazixia/Downloads/zixiaxia.github.io-main/index.html)",
+      "Bash(sed -i '' 's|href=\"\"research/Structure-aware dehazing.*\\\\.pdf\"\"|href=\"\"files/papers/structure-aware-dehazing.pdf\"\"|g' /Users/xiazixia/Downloads/zixiaxia.github.io-main/index.html)",
+      "Bash(curl -s https://junwon.me/)",
+      "Bash(curl:*)",
+      "Bash(file /Users/xiazixia/Downloads/zixiaxia.github.io-main/images/logos/*)",
+      "Bash(git fetch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}

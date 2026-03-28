@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zixia Xia</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 20px;
+      line-height: 1.75;
+      color: #333;
+      background: #fff;
+    }
+
+    a { color: #1772d0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ═══════════════════════════════════
+       TOP NAV
+    ═══════════════════════════════════ */
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .masthead__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+    .masthead__site-name {
+      font-weight: 700;
+      font-size: 1em;
+      color: #111;
+      white-space: nowrap;
+    }
+    .masthead__site-name a { color: inherit; }
+    .masthead__menu {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .masthead__menu li a {
+      font-size: 0.9em;
+      font-weight: 500;
+      color: #555;
+    }
+    .masthead__menu li a:hover { color: #1772d0; text-decoration: none; }
+
+    /* ═══════════════════════════════════
+       TWO-COLUMN LAYOUT
+    ═══════════════════════════════════ */
+    .layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 32px 100px;
+      display: flex;
+      gap: 56px;
+      align-items: flex-start;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      flex-shrink: 0;
+      width: 220px;
+      position: sticky;
+      top: 72px; /* masthead height + gap */
+    }
+
+    .sidebar__avatar img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .sidebar__name {
+      font-size: 1.25em;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .sidebar__bio {
+      font-size: 0.88em;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.55;
+    }
+
+    .sidebar__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .sidebar__links li a {
+      font-size: 0.88em;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .sidebar__links li a:hover { color: #1772d0; text-decoration: none; }
+    .sidebar__links .icon {
+      width: 16px;
+      text-align: center;
+      color: #888;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer Logos ── */
+    .footer-logos {
+      border-top: 1px solid #e0e0e0;
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .footer-logos a {
+      display: flex;
+      align-items: center;
+    }
+    .footer-logos img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ── Main Content ── */
+    .main { flex: 1; min-width: 0; }
+
+    /* ── Section Headings ── */
+    .main section {
+      padding-top: 72px;
+    }
+    .main section:first-child {
+      padding-top: 0;
+    }
+
+    h2 {
+      font-size: 1.25em;
+      font-weight: 700;
+      color: #111;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      margin-top: 0;
+    }
+
+    /* ── About ── */
+    .about p {
+      margin-bottom: 14px;
+      color: #333;
+    }
+
+    /* ── News ── */
+    .news-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .news-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 0.93em;
+      line-height: 1.6;
+    }
+    .news-chevron {
+      flex-shrink: 0;
+      color: #555;
+      font-size: 0.85em;
+    }
+    .news-date {
+      flex-shrink: 0;
+      color: #e07b00;
+      font-weight: 600;
+    }
+    .news-text { color: #333; }
+    .news-text a { color: #1772d0; }
+
+    /* ── Publications ── */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pub {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 16px;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .pub:hover { background: #f7f7f7; }
+
+    /* Adaptive image column: percentage-based, no fixed px */
+    .pub-img {
+      flex-shrink: 0;
+      width: 26%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Venue badge above image */
+    .venue-badge {
+      background-color: #0048A6;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.72em;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      align-self: flex-start;
+    }
+    .venue-badge.review {
+      background-color: #888;
+    }
+
+    .pub-img-slot { width: 100%; }
+    .pub-img-slot img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+    }
+    .pub-img-slot--full { width: 100%; }
+    .pub-img-slot--full img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+    }
+    .pub-img-slot .placeholder,
+    .pub-img-slot--full .placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #f2f2f2;
+      border: 1px dashed #ccc;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #bbb;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .pub-info { flex: 1; min-width: 0; }
+
+    .pub-title {
+      font-weight: 700;
+      color: #111;
+      font-size: 0.97em;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .pub-authors {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    .pub-authors strong { color: #111; }
+
+    .pub-venue {
+      font-size: 0.88em;
+      color: #444;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .pub-venue strong { font-style: normal; color: #1772d0; }
+
+    .pub-desc {
+      font-size: 0.88em;
+      color: #555;
+      line-height: 1.65;
+      margin-top: 8px;
+    }
+
+    /* Button-style links (junwon.me style) */
+    .pub-links { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+    .pub-links a {
+      font-size: 0.8em;
+      color: #0048A6;
+      border: 1.5px solid #0048A6;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .pub-links a:hover {
+      color: #fff;
+      background-color: #0048A6;
+      text-decoration: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .badge-review { background: #fff3cd; color: #856404; }
+
+    /* ── Experience / Education ── */
+    .entry-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .entry {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      transition: box-shadow 0.15s;
+    }
+    .entry:hover {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .entry-logo {
+      flex-shrink: 0;
+      width: 100px;
+      height: 44px;
+      border-radius: 6px;
+      border: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #fff;
+      padding: 6px 8px;
+    }
+    .entry-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .entry-logo-placeholder {
+      flex-shrink: 0;
+      width: 100px;
+      height: 44px;
+      border-radius: 6px;
+      background: #f5f5f5;
+      border: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65em;
+      color: #aaa;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .entry-body { flex: 1; min-width: 0; }
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+    .entry-org {
+      font-weight: 700;
+      color: #111;
+      font-size: 0.97em;
+    }
+    .entry-date {
+      flex-shrink: 0;
+      font-size: 0.82em;
+      color: #888;
+      white-space: nowrap;
+    }
+    .entry-role {
+      font-size: 0.88em;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .entry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .entry-tag {
+      font-size: 0.75em;
+      background: #f0f4ff;
+      color: #3a5bc7;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .entry-detail {
+      font-size: 0.88em;
+      color: #555;
+      line-height: 1.65;
+    }
+    .entry-award {
+      font-size: 0.85em;
+      color: #1a7a1a;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* ── Teaching ── */
+    .teaching-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .teaching-course {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: #111;
+      line-height: 1.4;
+    }
+    .teaching-role {
+      font-size: 0.88em;
+      color: #555;
+      margin-top: 2px;
+    }
+    .teaching-instructor {
+      font-size: 0.82em;
+      color: #777;
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════ */
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; gap: 32px; padding: 32px 20px 60px; }
+      .sidebar { width: 100%; position: static; display: flex; gap: 20px; align-items: flex-start; }
+      .sidebar__avatar img { width: 100px; height: 100px; margin-bottom: 0; }
+      .masthead__menu { gap: 16px; }
+      .pub { flex-direction: column; }
+      .pub-img, .pub-img img, .pub-img .placeholder { width: 100%; height: 140px; }
+      .entry { flex-direction: column; gap: 4px; }
+      .entry-date { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ Top Nav ══════════════ -->
+  <div class="masthead">
+    <div class="masthead__inner">
+
+      <ul class="masthead__menu">
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="files/CV.pdf" target="_blank">CV</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════ Layout ══════════════ -->
+  <div class="layout">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar__avatar">
+        <img src="images/profile.jpg" alt="Zixia Xia">
+      </div>
+      <div class="sidebar__name">Zixia (Celia) Xia</div>
+      <div class="sidebar__bio">Ph.D. Student at University of California, Irvine</div>
+      <ul class="sidebar__links">
+        <li>
+          <a href="mailto:zixiax3@gmail.com">
+            <span class="icon">✉</span> Email
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?user=Femu1rwAAAAJ" target="_blank">
+            <span class="icon">◎</span> Google Scholar
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/ZixiaXia" target="_blank">
+            <span class="icon">⌥</span> GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/zixia-xia-675614242/" target="_blank">
+            <span class="icon">in</span> LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="files/CV.pdf" target="_blank">
+            <span class="icon">↓</span> Resume
+          </a>
+        </li>
+      </ul>
+
+    </aside>
+
+    <!-- ── Main ── -->
+    <main class="main">
+
+      <!-- About -->
+      <section class="about">
+        <h2>About</h2>
+        <p>
+          I am a Ph.D. student in Computer Science at the
+          <a href="https://uci.edu/" target="_blank">University of California, Irvine</a>,
+          advised by <a href="https://faculty.sites.uci.edu/levorato/" target="_blank">Prof. Marco Levorato</a>.
+        </p>
+        <p>
+          My research focuses on improving the reliability of embodied AI systems by building
+          structured world representations. I work on integrating geometry, uncertainty, and
+          multi-sensor information to support tasks such as navigation, SLAM, and 3D reconstruction.
+          My experience includes BEV-based perception, multi-sensor fusion (cameras, lidars, radars),
+          reinforcement learning, and vision-language-action models.
+        </p>
+        <p>
+          Previously, I received my M.S. in Computer Science from
+          <a href="http://www.tju.edu.cn/" target="_blank">Tianjin University</a>,
+          advised by <a href="https://gpantju.github.io/index/" target="_blank">Prof. Gang Pan</a>, and completed internships at
+          KLA Corporation, Qcraft, and Microsoft.
+        </p>
+      </section>
+
+      <!-- News -->
+      <section>
+        <h2>News</h2>
+        <ul class="news-list">
+          <li>
+            <span class="news-chevron">&#8250;</span>
+            <span class="news-date">[Jan 2026]</span>
+            <span class="news-text">Paper <a href="#publications">SmartFusion-SLAM</a> accepted to <strong>ICCPS 2026</strong>.</span>
+          </li>
+          <li>
+            <span class="news-chevron">&#8250;</span>
+            <span class="news-date">[Jun 2025]</span>
+            <span class="news-text">Started ML Engineer Internship at <strong>KLA</strong>, Milpitas, CA.</span>
+          </li>
+          <li>
+            <span class="news-chevron">&#8250;</span>
+            <span class="news-date">[Feb 2025]</span>
+            <span class="news-text">Paper <a href="#publications">Sewer Image Super-Resolution with Depth Priors and Its Lightweight Network</a> accepted to <strong>CACAIE 2025</strong>.</span>
+          </li>
+          <li>
+            <span class="news-chevron">&#8250;</span>
+            <span class="news-date">[Oct 2024]</span>
+            <span class="news-text"><strong>Silver Award</strong> at China International College Students' Innovation Competition 2024 for <em>PipePro: Intelligent Municipal Pipeline Inspection and Maintenance Platform</em>.</span>
+          </li>
+          <li>
+            <span class="news-chevron">&#8250;</span>
+            <span class="news-date">[Feb 2024]</span>
+            <span class="news-text">Paper <a href="#publications">NaviSplit</a> accepted to <strong>WoWMoM 2024</strong>.</span>
+          </li>
+          <li>
+            <span class="news-chevron">&#8250;</span>
+            <span class="news-date">[Sep 2023]</span>
+            <span class="news-text">Started Ph.D. at <strong>UC Irvine</strong>, advised by <a href="https://faculty.sites.uci.edu/levorato/" target="_blank">Prof. Marco Levorato</a>.</span>
+          </li>
+          <li>
+            <span class="news-chevron">&#8250;</span>
+            <span class="news-date">[Mar 2023]</span>
+            <span class="news-text">Started Research Internship at <strong>Qcraft.</strong></span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Publications -->
+      <section id="publications">
+        <h2>Publications</h2>
+        <div class="pub-list">
+
+          <!-- [1] RiskGuard -->
+          <div class="pub">
+            <div class="pub-img">
+              <span class="venue-badge review">IROS 2026</span>
+              <div class="pub-img-slot">
+                <video autoplay loop muted playsinline
+                       style="width:100%;border-radius:6px;border:1px solid #e0e0e0;display:block;">
+                  <source src="images/pub/thumb_riskguard.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="pub-img-slot">
+                <img src="images/pub/thumb_riskguard.png" alt="RiskGuard"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="placeholder" style="display:none">thumb_riskguard.png</div>
+              </div>
+            </div>
+            <div class="pub-info">
+              <div class="pub-title">
+                RiskGuard: A Trajectory Revision Method Based on Unified Differentiable Risk Fields for VLA
+                <span class="badge badge-review">Under Review</span>
+              </div>
+              <div class="pub-authors"><strong>Zixia Xia</strong>, Marco Levorato</div>
+              <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (<strong>IROS</strong>), 2026</div>
+              <div class="pub-links"></div>
+              <div class="pub-desc">
+                A trajectory revision framework for vision-language-action models using unified
+                differentiable risk fields to improve safety and reliability of embodied agents.
+              </div>
+            </div>
+          </div>
+
+          <!-- [3] SmartFusion-SLAM -->
+          <div class="pub">
+            <div class="pub-img">
+              <span class="venue-badge">ICCPS 2026</span>
+              <div class="pub-img-slot">
+                <img src="images/pub/thumb_smartfusion.png" alt="SmartFusion-SLAM"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="placeholder" style="display:none">thumb_smartfusion.png</div>
+              </div>
+              <div class="pub-img-slot">
+                <img src="images/pub/thumb_smartfusion_2.png" alt="SmartFusion-SLAM 2"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="placeholder" style="display:none">thumb_smartfusion_2.png</div>
+              </div>
+            </div>
+            <div class="pub-info">
+              <div class="pub-title">
+                SmartFusion-SLAM: From Passive Fusion to Temporal Uncertainty-Aware Sensor Adaptation in BEV SLAM
+              </div>
+              <div class="pub-authors"><strong>Zixia Xia</strong>, Marco Levorato</div>
+              <div class="pub-venue">IEEE/ACM International Conference on Cyber-Physical Systems (<strong>ICCPS</strong>), 2026</div>
+              <div class="pub-links">
+                <a href="https://github.com/ZixiaXia/SmartFusion-SLAM" target="_blank">dataset</a>
+              </div>
+              <div class="pub-desc">
+                A reinforcement learning-based BEV SLAM framework that dynamically re-weights
+                LiDAR/Camera/Radar inputs based on real-time uncertainty states, improving
+                trajectory accuracy by 27% in long-tail weather scenarios.
+              </div>
+            </div>
+          </div>
+
+          <!-- [5] NaviSplit -->
+          <div class="pub">
+            <div class="pub-img">
+              <span class="venue-badge">WoWMoM 2024</span>
+              <div class="pub-img-slot">
+                <img src="images/pub/thumb_navisplit.png" alt="NaviSplit"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="placeholder" style="display:none">thumb_navisplit.png</div>
+              </div>
+              <div class="pub-img-slot">
+                <img src="images/pub/thumb_navisplit_2.png" alt="NaviSplit 2"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="placeholder" style="display:none">thumb_navisplit_2.png</div>
+              </div>
+            </div>
+            <div class="pub-info">
+              <div class="pub-title">
+                NaviSplit: Dynamic Multi-Branch Split DNNs for Efficient Distributed Autonomous Navigation
+              </div>
+              <div class="pub-authors">Tim K. Johnsen, <strong>Zixia Xia</strong>, Ian A. Harshbarger, Marco Levorato</div>
+              <div class="pub-venue">IEEE International Symposium on a World of Wireless, Mobile and Multimedia Networks (<strong>WoWMoM</strong>), 2024</div>
+              <div class="pub-links"></div>
+              <div class="pub-desc">
+                A deep RL policy for adaptive split computing between UAV and cloud, reducing data
+                transmission by 95% while maintaining &gt;72% depth estimation accuracy for autonomous navigation.
+              </div>
+            </div>
+          </div>
+
+          <!-- [2] DGNv2 -->
+          <div class="pub">
+            <div class="pub-img">
+              <span class="venue-badge review">CACAIE 2026</span>
+              <div class="pub-img-slot">
+                <img src="images/pub/thumb_dgnv2.png" alt="DGNv2"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="placeholder" style="display:none">thumb_dgnv2.png</div>
+              </div>
+              <div class="pub-img-slot">
+                <img src="images/pub/thumb_dgnv2_2.png" alt="DGNv2 2"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="placeholder" style="display:none">thumb_dgnv2_2.png</div>
+              </div>
+            </div>
+            <div class="pub-info">
+              <div class="pub-title">
+                DGNv2: A DWT-Guided Frequency-Spatial Dual-Domain Dehazing Network for Sewer Inspection Images
+                <span class="badge badge-review">Under Review</span>
+              </div>
+              <div class="pub-authors">Gang Pan, Zhijie Sui, <strong>Zixia Xia</strong>, Chao Kang, Di Sun</div>
+              <div class="pub-venue">Computer-Aided Civil and Infrastructure Engineering (<strong>CACAIE</strong>), 2026</div>
+              <div class="pub-links"></div>
+              <div class="pub-desc">
+                A dual-domain dehazing network guided by Discrete Wavelet Transform for improving
+                sewer inspection image quality, with contrastive regularization for structural detail preservation.
+              </div>
+            </div>
+          </div>
+
+          <!-- [4] Super-Resolution -->
+          <div class="pub">
+            <div class="pub-img">
+              <span class="venue-badge">CACAIE 2025</span>
+              <div class="pub-img-slot">
+                <img src="images/pub/thumb_superres.png" alt="Sewer Super-Resolution"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="placeholder" style="display:none">thumb_superres.png</div>
+              </div>
+              <div class="pub-img-slot">
+                <img src="images/pub/thumb_superres_2.png" alt="Sewer Super-Resolution 2"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="placeholder" style="display:none">thumb_superres_2.png</div>
+              </div>
+            </div>
+            <div class="pub-info">
+              <div class="pub-title">
+                Sewer Image Super-Resolution with Depth Priors and Its Lightweight Network
+              </div>
+              <div class="pub-authors">Gang Pan, Chen Wang, Zhijie Sui, Shuai Guo, Yaozhi Lv, Honglie Li, Di Sun, <strong>Zixia Xia</strong></div>
+              <div class="pub-venue">Computer-Aided Civil and Infrastructure Engineering (<strong>CACAIE</strong>), 2025</div>
+              <div class="pub-links"></div>
+              <div class="pub-desc">
+                A lightweight super-resolution network for sewer inspection images incorporating
+                monocular depth priors to enhance spatial detail and structural fidelity.
+              </div>
+            </div>
+          </div>
+
+          <!-- [6] Structure-Aware Dehazing -->
+          <div class="pub">
+            <div class="pub-img">
+              <span class="venue-badge">CACAIE 2023</span>
+              <div class="pub-img-slot">
+                <img src="images/pub/scheme.png" alt="Structure-Aware Dehazing">
+              </div>
+              <div class="pub-img-slot">
+                <img src="images/pub/SANL-Net.png" alt="SANL-Net">
+              </div>
+            </div>
+            <div class="pub-info">
+              <div class="pub-title">
+                Structure-Aware Dehazing of Sewer Inspection Images Based on Monocular Depth Cues
+              </div>
+              <div class="pub-authors"><strong>Zixia Xia</strong>, Shuai Guo, Di Sun, Yaozhi Lv, Honglie Li, Gang Pan</div>
+              <div class="pub-venue">Computer-Aided Civil and Infrastructure Engineering (<strong>CACAIE</strong>), 2023</div>
+              <div class="pub-links">
+                <a href="files/papers/structure-aware-dehazing.pdf" target="_blank">paper</a>
+                <a href="https://github.com/ZixiaXia/SANL-Net" target="_blank">code</a>
+              </div>
+              <div class="pub-desc">
+                SANL-Net integrates semantic and spatial attention for structure-preserving sewer image
+                dehazing, using camera calibration and monocular depth cues to synthesize training data.
+                Achieves PSNR 27.28, SSIM 0.8963 with a compact 15.47M-parameter network.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience">
+        <h2>Industry Experience</h2>
+        <div class="entry-list">
+
+          <div class="entry">
+            <div class="entry-logo">
+              <img src="images/logos/KLA.png" alt="KLA"
+                   onerror="this.parentElement.className='entry-logo-placeholder'">
+            </div>
+            <div class="entry-body">
+              <div class="entry-header">
+                <div class="entry-org">KLA · Milpitas, CA</div>
+                <div class="entry-date">Jun – Sep 2025</div>
+              </div>
+              <div class="entry-role">Machine Learning Engineer Intern</div>
+              <div class="entry-tags">
+                <span class="entry-tag">Super-Resolution</span>
+                <span class="entry-tag">Model Fine-Tuning</span>
+                <span class="entry-tag">Synthetic Data</span>
+              </div>
+              <div class="entry-detail">
+                Built a physics-based synthetic data generation pipeline simulating optical distortions;
+                fine-tuned RCAN models improving geometric reconstruction robustness by 18%.
+              </div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-logo">
+              <img src="images/logos/QCraft.jpeg" alt="Qcraft"
+                   onerror="this.parentElement.className='entry-logo-placeholder'">
+            </div>
+            <div class="entry-body">
+              <div class="entry-header">
+                <div class="entry-org">Qcraft Inc. · Beijing / Santa Clara</div>
+                <div class="entry-date">Mar – Aug 2023</div>
+              </div>
+              <div class="entry-role">Research Intern · Autonomous Driving</div>
+              <div class="entry-tags">
+                <span class="entry-tag">Multi-GPU Training</span>
+                <span class="entry-tag">Sensor Fusion</span>
+                <span class="entry-tag">LiDAR-Camera</span>
+              </div>
+              <div class="entry-detail">
+                Enhanced CenterNet with adaptive heatmaps and weighted loss, boosting rare-class mAP by 3.1%;
+                engineered a high-precision LiDAR-Camera fusion module with AbsRel &lt; 0.07.
+              </div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-logo">
+              <img src="images/logos/Microsoft.png" alt="Microsoft"
+                   onerror="this.parentElement.className='entry-logo-placeholder'">
+            </div>
+            <div class="entry-body">
+              <div class="entry-header">
+                <div class="entry-org">Microsoft Corporation · Suzhou, China</div>
+                <div class="entry-date">Jun – Sep 2022</div>
+              </div>
+              <div class="entry-role">Software Engineer Intern</div>
+              <div class="entry-tags">
+                <span class="entry-tag">Active Directory</span>
+                <span class="entry-tag">Cloud Infrastructure</span>
+                <span class="entry-tag">PowerShell</span>
+              </div>
+              <div class="entry-detail">
+                Implemented PowerShell cmdlets for large-scale Active Directory tenant relocation
+                and built a size-aware handler for cluster load balancing.
+              </div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-logo">
+              <img src="images/logos/catrc.png" alt="CATRC"
+                   onerror="this.parentElement.className='entry-logo-placeholder'; this.parentElement.textContent='CATRC'">
+            </div>
+            <div class="entry-body">
+              <div class="entry-header">
+                <div class="entry-org">China Automotive Technology and Research Center · Tianjin</div>
+                <div class="entry-date">May – Jul 2019</div>
+              </div>
+              <div class="entry-role">Research Intern · Autonomous Driving</div>
+              <div class="entry-tags">
+                <span class="entry-tag">Embedded DL</span>
+                <span class="entry-tag">Jetson TX2</span>
+                <span class="entry-tag">Real-Time Detection</span>
+              </div>
+              <div class="entry-detail">
+                Deployed lightweight YOLO-V3 on Jetson TX2 for real-time traffic sign detection,
+                reducing model parameters by 32% with comparable accuracy.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education">
+        <h2>Education</h2>
+        <div class="entry-list">
+
+          <div class="entry">
+            <div class="entry-logo">
+              <img src="images/logos/uci.png" alt="UCI"
+                   onerror="this.parentElement.className='entry-logo-placeholder'">
+            </div>
+            <div class="entry-body">
+              <div class="entry-header">
+                <div class="entry-org">University of California, Irvine</div>
+                <div class="entry-date">2023 – 2028</div>
+              </div>
+              <div class="entry-role">Ph.D. in Networked Systems · GPA 3.96 / 4.0</div>
+              <div class="entry-detail">Advisor: <a href="https://faculty.sites.uci.edu/levorato/" target="_blank">Prof. Marco Levorato</a></div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-logo">
+              <img src="images/logos/tju.png" alt="TJU"
+                   onerror="this.parentElement.className='entry-logo-placeholder'">
+            </div>
+            <div class="entry-body">
+              <div class="entry-header">
+                <div class="entry-org">Tianjin University</div>
+                <div class="entry-date">2020 – 2023</div>
+              </div>
+              <div class="entry-role">M.S. in Computer Science and Technology</div>
+              <div class="entry-detail">Advisor: <a href="https://gpantju.github.io/index/" target="_blank">Prof. Gang Pan</a> · Research: Image Denoising, Depth Estimation</div>
+              <div class="entry-award">🏆 LuKaining Professor Scholarship (Rank 1 / 255)</div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-logo">
+              <img src="images/logos/tju.png" alt="TJU"
+                   onerror="this.parentElement.className='entry-logo-placeholder'">
+            </div>
+            <div class="entry-body">
+              <div class="entry-header">
+                <div class="entry-org">Tianjin University</div>
+                <div class="entry-date">2016 – 2020</div>
+              </div>
+              <div class="entry-role">B.S. in Software Engineering</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Teaching -->
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <div class="teaching-list">
+
+          <div>
+            <div class="teaching-course">CompSci 116: Computer Photo &amp; Vision</div>
+            <div class="teaching-role">Teaching Assistant</div>
+            <div class="teaching-instructor">Alexander Berg (Winter 2024) · Charless Fowlkes (Winter 2025, Fall 2025)</div>
+          </div>
+
+          <div>
+            <div class="teaching-course">CompSci 117: Project in Computer Vision</div>
+            <div class="teaching-role">Teaching Assistant</div>
+            <div class="teaching-instructor">Alexander Berg (Fall 2023, Fall 2024) · Charless Fowlkes (Spring 2025)</div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ══════════════ Footer Logos ══════════════ -->
+  <footer class="footer-logos">
+    <a href="https://uci.edu" target="_blank">
+      <img src="images/logos/uci.png" alt="UC Irvine"
+           onerror="this.parentElement.style.display='none'">
+    </a>
+    <a href="http://www.tju.edu.cn" target="_blank">
+      <img src="images/logos/tju.png" alt="Tianjin University"
+           onerror="this.parentElement.style.display='none'">
+    </a>
+    <a href="https://www.microsoft.com" target="_blank">
+      <img src="images/logos/Microsoft.png" alt="Microsoft"
+           onerror="this.parentElement.style.display='none'">
+    </a>
+    <a href="https://www.qcraft.ai" target="_blank">
+      <img src="images/logos/QCraft.jpeg" alt="Qcraft"
+           onerror="this.parentElement.style.display='none'">
+    </a>
+    <a href="https://www.kla.com" target="_blank">
+      <img src="images/logos/KLA.png" alt="KLA"
+           onerror="this.parentElement.style.display='none'">
+    </a>
+  </footer>
+
+</body>
+</html>
