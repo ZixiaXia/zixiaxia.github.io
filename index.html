@@ -120,22 +120,23 @@
       flex-shrink: 0;
     }
 
-    /* ── Footer Logos ── */
-    .footer-logos {
-      border-top: 1px solid #e0e0e0;
-      padding: 32px 40px;
+    /* ── Affiliation Logos ── */
+    .affil-logos {
       display: flex;
       align-items: center;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 40px;
+      gap: 24px;
+      margin-top: 24px;
     }
-    .footer-logos a {
+    .affil-logos a {
       display: flex;
       align-items: center;
+      opacity: 0.85;
+      transition: opacity 0.15s;
     }
-    .footer-logos img {
-      height: 32px;
+    .affil-logos a:hover { opacity: 1; }
+    .affil-logos img {
+      height: 28px;
       width: auto;
       object-fit: contain;
     }
@@ -470,14 +471,21 @@
        RESPONSIVE
     ═══════════════════════════════════ */
     @media (max-width: 768px) {
-      .layout { flex-direction: column; gap: 32px; padding: 32px 20px 60px; }
-      .sidebar { width: 100%; position: static; display: flex; gap: 20px; align-items: flex-start; }
-      .sidebar__avatar img { width: 100px; height: 100px; margin-bottom: 0; }
-      .masthead__menu { gap: 16px; }
+      .layout { flex-direction: column; gap: 24px; padding: 24px 16px 60px; }
+      .sidebar { width: 100%; position: static; }
+      .sidebar__avatar img { width: 100px; height: 100px; margin-bottom: 12px; }
+      .masthead__inner { padding: 0 16px; }
+      .masthead__menu { gap: 12px; flex-wrap: wrap; }
+      .masthead__menu li a { font-size: 0.82em; }
       .pub { flex-direction: column; }
-      .pub-img, .pub-img img, .pub-img .placeholder { width: 100%; height: 140px; }
-      .entry { flex-direction: column; gap: 4px; }
-      .entry-date { width: auto; }
+      .pub-img { width: 100%; flex-direction: row; gap: 8px; }
+      .pub-img-slot { flex: 1; height: 110px; }
+      .pub-img-slot img, .pub-img-slot video { height: 100%; width: 100%; object-fit: cover; }
+      .entry { flex-direction: column; gap: 8px; }
+      .entry-logo, .entry-logo-placeholder { width: 80px; height: 36px; }
+      .entry-header { flex-direction: column; gap: 2px; }
+      .entry-date { font-size: 0.8em; }
+      .teaching-item { flex-direction: column; gap: 2px; }
     }
   </style>
 </head>
@@ -561,6 +569,23 @@
           advised by <a href="https://gpantju.github.io/index/" target="_blank">Prof. Gang Pan</a>, and completed internships at
           KLA Corporation, Qcraft, and Microsoft.
         </p>
+        <div class="affil-logos">
+          <a href="https://uci.edu" target="_blank">
+            <img src="images/logos/uci.png" alt="UC Irvine" onerror="this.parentElement.style.display='none'">
+          </a>
+          <a href="http://www.tju.edu.cn" target="_blank">
+            <img src="images/logos/tju.png" alt="Tianjin University" onerror="this.parentElement.style.display='none'">
+          </a>
+          <a href="https://www.kla.com" target="_blank">
+            <img src="images/logos/KLA.png" alt="KLA" onerror="this.parentElement.style.display='none'">
+          </a>
+          <a href="https://www.qcraft.ai" target="_blank">
+            <img src="images/logos/QCraft.jpeg" alt="Qcraft" onerror="this.parentElement.style.display='none'">
+          </a>
+          <a href="https://www.microsoft.com" target="_blank">
+            <img src="images/logos/Microsoft.png" alt="Microsoft" onerror="this.parentElement.style.display='none'">
+          </a>
+        </div>
       </section>
 
       <!-- News -->
@@ -575,7 +600,7 @@
           <li>
             <span class="news-chevron">&#8250;</span>
             <span class="news-date">[Jun 2025]</span>
-            <span class="news-text">Started ML Engineer Internship at <strong>KLA</strong>, Milpitas, CA.</span>
+            <span class="news-text">ML Engineer Intern at <strong>KLA</strong> — working on super-resolution for semiconductor inspection.</span>
           </li>
           <li>
             <span class="news-chevron">&#8250;</span>
@@ -627,7 +652,7 @@
                 </video>
               </div>
               <div class="pub-img-slot">
-                <img src="images/pub/thumb_riskguard.png" alt="RiskGuard"
+                <img src="images/pub/thumb_riskguard.png" alt="RiskGuard risk field visualization for VLA trajectory revision"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="placeholder" style="display:none">thumb_riskguard.png</div>
               </div>
@@ -652,12 +677,12 @@
             <div class="pub-img">
               <span class="venue-badge">ICCPS 2026</span>
               <div class="pub-img-slot">
-                <img src="images/pub/thumb_smartfusion.png" alt="SmartFusion-SLAM"
+                <img src="images/pub/thumb_smartfusion.png" alt="SmartFusion-SLAM BEV multi-sensor fusion overview"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="placeholder" style="display:none">thumb_smartfusion.png</div>
               </div>
               <div class="pub-img-slot">
-                <img src="images/pub/thumb_smartfusion_2.png" alt="SmartFusion-SLAM 2"
+                <img src="images/pub/thumb_smartfusion_2.png" alt="SmartFusion-SLAM trajectory accuracy comparison across weather conditions"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="placeholder" style="display:none">thumb_smartfusion_2.png</div>
               </div>
@@ -684,12 +709,12 @@
             <div class="pub-img">
               <span class="venue-badge">WoWMoM 2024</span>
               <div class="pub-img-slot">
-                <img src="images/pub/thumb_navisplit.png" alt="NaviSplit"
+                <img src="images/pub/thumb_navisplit.png" alt="NaviSplit adaptive split computing system for UAV navigation"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="placeholder" style="display:none">thumb_navisplit.png</div>
               </div>
               <div class="pub-img-slot">
-                <img src="images/pub/thumb_navisplit_2.png" alt="NaviSplit 2"
+                <img src="images/pub/thumb_navisplit_2.png" alt="NaviSplit multi-branch DNN split policy evaluation"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="placeholder" style="display:none">thumb_navisplit_2.png</div>
               </div>
@@ -713,12 +738,12 @@
             <div class="pub-img">
               <span class="venue-badge review">CACAIE 2026</span>
               <div class="pub-img-slot">
-                <img src="images/pub/thumb_dgnv2.png" alt="DGNv2"
+                <img src="images/pub/thumb_dgnv2.png" alt="DGNv2 DWT-guided frequency-spatial dual-domain dehazing network architecture"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="placeholder" style="display:none">thumb_dgnv2.png</div>
               </div>
               <div class="pub-img-slot">
-                <img src="images/pub/thumb_dgnv2_2.png" alt="DGNv2 2"
+                <img src="images/pub/thumb_dgnv2_2.png" alt="DGNv2 dehazing results on sewer inspection images"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="placeholder" style="display:none">thumb_dgnv2_2.png</div>
               </div>
@@ -748,7 +773,7 @@
                 <div class="placeholder" style="display:none">thumb_superres.png</div>
               </div>
               <div class="pub-img-slot">
-                <img src="images/pub/thumb_superres_2.png" alt="Sewer Super-Resolution 2"
+                <img src="images/pub/thumb_superres_2.png" alt="Sewer super-resolution depth prior integration comparison"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="placeholder" style="display:none">thumb_superres_2.png</div>
               </div>
@@ -775,7 +800,7 @@
                 <img src="images/pub/scheme.png" alt="Structure-Aware Dehazing">
               </div>
               <div class="pub-img-slot">
-                <img src="images/pub/SANL-Net.png" alt="SANL-Net">
+                <img src="images/pub/SANL-Net.png" alt="SANL-Net architecture with semantic and spatial attention modules">
               </div>
             </div>
             <div class="pub-info">
@@ -975,29 +1000,6 @@
     </main>
   </div>
 
-  <!-- ══════════════ Footer Logos ══════════════ -->
-  <footer class="footer-logos">
-    <a href="https://uci.edu" target="_blank">
-      <img src="images/logos/uci.png" alt="UC Irvine"
-           onerror="this.parentElement.style.display='none'">
-    </a>
-    <a href="http://www.tju.edu.cn" target="_blank">
-      <img src="images/logos/tju.png" alt="Tianjin University"
-           onerror="this.parentElement.style.display='none'">
-    </a>
-    <a href="https://www.microsoft.com" target="_blank">
-      <img src="images/logos/Microsoft.png" alt="Microsoft"
-           onerror="this.parentElement.style.display='none'">
-    </a>
-    <a href="https://www.qcraft.ai" target="_blank">
-      <img src="images/logos/QCraft.jpeg" alt="Qcraft"
-           onerror="this.parentElement.style.display='none'">
-    </a>
-    <a href="https://www.kla.com" target="_blank">
-      <img src="images/logos/KLA.png" alt="KLA"
-           onerror="this.parentElement.style.display='none'">
-    </a>
-  </footer>
 
 </body>
 </html>
